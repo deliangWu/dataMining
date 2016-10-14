@@ -4,10 +4,11 @@
 #   data:       data.frame format, the full data set including all attributes and class label of all samples
 #   nmin:       the minimum amount of samples for a node to split
 #   minleaf:    minimum amout of samples in a child node after splitting
-tree.grow <- function(data,nmin = 2, minleaf = 1) {
+tree.grow <- function(x,y,nmin = 2, minleaf = 1) {
     # create a empty tree
     tree <- data.frame()
     # create the sample list for root node
+    data <- cbind(x,y)
     sampleList <- 1:nrow(data)
     # pass the list of root node to node list
     # the format of a single load is a list of {samples and parent node No.}
