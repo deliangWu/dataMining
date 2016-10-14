@@ -656,7 +656,6 @@ plotTree <- function(tree,data,dispNodeInf = TRUE) {
     # generate tree graph
     dat <- data.frame(parent=parent,  node=node,  text=text)
     g <- graph.data.frame(dat)
-    print(V(g))
     
     # get the node information including 'n', 'gr', 'enode' which will be used to display
     n <- tree[as.numeric(V(g)$name),'n']
@@ -688,7 +687,6 @@ plotHeatMap <- function(accu) {
     }
     
     names(accu.m) <- c('nmin','minleaf','err')
-    print(accu.m)
     
     p <- ggplot(accu.m, aes(minleaf,nmin)) + 
         geom_tile(aes(fill = err), colour = "white") +
